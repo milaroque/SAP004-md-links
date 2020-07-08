@@ -1,4 +1,41 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "description": "## Índice",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milaroque/SAP004-md-links.git"
+  },
+  "keywords": [
+    "markdown",
+    "library",
+    "links"
+  ],
+  "author": "Camila Roque <milaroque>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milaroque/SAP004-md-links/issues"
+  },
+  "homepage": "https://github.com/milaroque/SAP004-md-links#readme",
+  "bin": {
+    "md-links": "cli.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-jest": "^26.1.0",
+    "chalk": "^4.1.0",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1"
+  }
 }

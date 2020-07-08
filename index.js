@@ -1,22 +1,17 @@
 const fs = require('fs');
+const readPath = require('./readdir.js');
+const readFile = require('./readfile.js');
 
-const mdLinks = (file) => {
-  const array = [];
-  return new Promise((resolve, reject) => {
-    fs.readFile(file, 'utf8', (err, data) => {
-      if (err) {
-        reject(err.message);
-      } else {
-        const regex = /\[([^\[]+)\]\((.*)\)/gm;
-        const links = data.match(regex);
-        links.forEach((elem) => {
-          text = elem.match(/\[([^\[]+)\]/)[1].replace('\n', '');
-          href = elem.match(/\((.*)\)/)[1];
-          array.push({ text, href, file });
-        })
-        resolve(array);
+const mdLinks = (file, option) => {
+  return new Promise((resolved, rejected) => {
+    fs.stat(file, (err, stats) => {
+      if (err) rejected('Sorry, but there is no archive with that name in this directory');
+      else if (stats.isDirectory()) {
+        resolved(readPath(file, option));
+      } else if (stats.isFile()) {
+        resolved(readFile(file, option));
       }
-    })
-  })
+    });
+  });
 }
 module.exports = mdLinks;
