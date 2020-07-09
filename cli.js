@@ -9,10 +9,9 @@ const option = process.argv;
 
 mdLinks(file, option)
   .then((array) => {
-    array.map((elem) => {
       if (option.includes('--validate') && option.includes('--stats')){
-        console.log(statsLink(array))
-          checkLinks(elem.href)
+        Promise.all(checkLinks(array)).then(res => console.log(statsLink(res)))
+         /*  checkLinks(elem.href) */
           /* .then((response) => {
             console.log(`${chalk.red.bold(elem.file)} ${chalk.blueBright.bold(elem.href)} ${chalk.red.bold(response.status)} ${chalk.red.bold(response.statusText)} ${chalk.magenta.bold(elem.text.substring(0, 50))}`)
             console.log(statsLink(array))
@@ -24,5 +23,4 @@ mdLinks(file, option)
       }
 
     })
-  })
   .catch((error) => console.log(error));

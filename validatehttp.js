@@ -1,17 +1,19 @@
 const axios = require('axios');
 
-const checkLinks = (link) => {
-  return axios.get(link)
-    .then((response) => ({
-      link,
-      status: response.status,
-      statusText: response.statusText,
-    }))
-    .catch(() => {
-     return { link, status: 404, statusText: 'Fail' };
+const checkLinks = (results) => {
+    const socorro = results.map((el) => {
+      return axios.get(el.href)
+        .then((response) => ({
+          href: el.href,
+          text: el.text,
+          status: response.status,
+          statusText: response.statusText,
+        }))
+        .catch(() => {
+          return ({ href: el.href, status: 404, statusText: 'Fail' });
+        })
     })
-}
-
-
+    return socorro
+  }
 
 module.exports = checkLinks; 
