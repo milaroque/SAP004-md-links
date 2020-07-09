@@ -25,6 +25,8 @@ Chrome](https://developers.). Ele vai nos permitir executar o
 JavaScript no nosso sistema operacional, seja no seu computador ou em um
 servidor, o que nos abre portas para poder interagir com sistemas, arquivos,
 redes e etc.
+[Node.js](https://nodejs.org/pt-br/)
+[Node.js](https://nodejs.org/pt-br/)
 
 Neste projeto vamos ficar um pouco longe do navegador para construir um programa
 que seja executado com Node.js, onde iremos aprender sobre como interagir com

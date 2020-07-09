@@ -8,9 +8,9 @@ const readPath = (dir, option) => {
       if (err)
         reject(err.message);
       else {
-        files.forEach(file => {
+        files.map(file => {
           if (path.extname(file) == ".md") {
-            resolve(readFile(`${dir}/${file}`))       
+            resolve(readFile(`${dir}/${file}`, option))       
           }
         })
       } 

@@ -11,10 +11,10 @@ const readFile = (file, option) => {
           const links = data.match(regex);
           links.forEach((elem) => {
             text = elem.match(/\[([^\[]+)\]/)[1].replace('\n', '');
-            href = elem.match(/\((http.*)\)/)[1];
+            href = elem.match(/\((http.*)\)/)[1].replace(')', '');
             array.push({ file,text, href});
           })
-        resolve(array);
+        resolve(array, option);
       }
     })
   })
