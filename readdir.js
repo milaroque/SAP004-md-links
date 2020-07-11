@@ -8,9 +8,11 @@ const readPath = (dir, option) => new Promise((resolve, reject) => {
       reject(err.message);
     } else {
       files.forEach((file) => {
-        if (path.extname(file) === '.md') {
-          resolve(readFile(`${dir}/${file}`, option));
-        }
+        setTimeout(() => {
+          if (path.extname(file) === '.md') {
+            resolve(readFile(`${dir}/${file}`, option));
+          }
+        }, 3000);
       });
     }
   });

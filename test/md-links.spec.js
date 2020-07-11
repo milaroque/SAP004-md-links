@@ -7,7 +7,7 @@ describe('mdLinks', () => {
   });
 
   it('should return validation', (done) => {
-    mdLinks('./test/test.md', '--validate').then((result) => {
+    mdLinks('./test/', '--validate').then((result) => {
       expect(result).toEqual(mock.arrayValidate);
       done();
     });
@@ -15,6 +15,12 @@ describe('mdLinks', () => {
   it('should return array objects', (done) => {
     mdLinks('./test/test.md').then((result) => {
       expect(result).toEqual(mock.array);
+      done();
+    });
+  });
+  it('should return stats', (done) => {
+    mdLinks('./test/', '--stats').then((result) => {
+      expect(result).toEqual(mock.arrayStats);
       done();
     });
   });
