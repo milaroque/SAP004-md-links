@@ -12,6 +12,18 @@ describe('mdLinks', () => {
       done();
     });
   });
+  it('should return validation', (done) => {
+    mdLinks('./test/test.md', '--validate').then((result) => {
+      expect(result).toEqual(mock.arrayValidate);
+      done();
+    });
+  });
+  it('should return validation and stats', (done) => {
+    mdLinks('./test/test.md', '--validate', '--stats').then((result) => {
+      expect(result).toEqual(mock.arrayValidate, mock.arrayStats);
+      done();
+    });
+  });
   it('should return array objects', (done) => {
     mdLinks('./test/test.md').then((result) => {
       expect(result).toEqual(mock.array);
@@ -23,5 +35,12 @@ describe('mdLinks', () => {
       expect(result).toEqual(mock.arrayStats);
       done();
     });
+  });
+  it('erro', (done) => {
+    mdLinks('./testsss/test.md')
+      .catch((err) => {
+        expect(err).toBe('Sorry, but there is no archive with that name in this directory');
+        done();
+      });
   });
 });

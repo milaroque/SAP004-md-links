@@ -6,7 +6,7 @@ const statsLink = require('./statshttp');
 const readFile = (file, option) => new Promise((resolve, reject) => {
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
-      reject(err.message);
+      reject('Unable to find path');
     } else {
       const array = [];
       const regex = /\[([^[]+)\]\((http.*)\)/gm;
