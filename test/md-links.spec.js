@@ -5,12 +5,12 @@ describe('mdLinks', () => {
   it('mdLinks should be a function', () => {
     expect(typeof mdLinks).toBe('function');
   });
-  it('should return validation', () => {
+  it('should return link validation in a directory', () => {
     mdLinks('./test/', '--validate').then((result) => {
       expect(result).toEqual(mock.arrayValidate);
     });
   });
-  it('should return validation', () => {
+  it('should return link validation in a file ".md"', () => {
     mdLinks('./test/test.md', '--validate').then((result) => {
       expect(result).toEqual(mock.arrayValidate);
     });
@@ -25,9 +25,11 @@ describe('mdLinks', () => {
       expect(result).toEqual(mock.array);
     });
   });
-  it('should return stats', async () => {
-    const data = await mdLinks('./test/', '--stats');
-    expect(data).toEqual(mock.arrayStats);
+  it('should return stats', (done) => {
+    mdLinks('./test/', '--stats').then((result) => {
+      expect(result).toEqual(mock.arrayStats);
+      done();
+    });
   });
   it('erro', () => {
     mdLinks('./testsss/test.md')
