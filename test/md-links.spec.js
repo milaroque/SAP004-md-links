@@ -32,9 +32,7 @@ describe('mdLinks', () => {
     });
   });
   it('erro', () => {
-    mdLinks('./testsss/test.md')
-      .catch((err) => {
-        expect(err).toBe('Sorry, but there is no archive with that name in this directory');
-      });
+    expect.assertions(1);
+    return expect(mdLinks('./test/tests.md')).rejects.toMatch('Sorry, but there is no archive with that name in this directory');
   });
 });
