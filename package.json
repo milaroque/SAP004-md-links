@@ -1,7 +1,7 @@
 {
-  "name": "md-links",
+  "name": "markdown-links-lib",
   "version": "0.1.0",
-  "description": "## Índice",
+  "description": "biblioteca que faz leitura de aquivos ou diretórios e retorna os aquivos com extensão .md e seus respectivos links",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -18,24 +18,27 @@
     "library",
     "links"
   ],
-  "author": "Camila Roque <milaroque>",
+  "author": "Camila Roque",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/milaroque/SAP004-md-links/issues"
   },
   "homepage": "https://github.com/milaroque/SAP004-md-links#readme",
   "bin": {
-    "md-links": "cli.js"
+    "md-links": "cli.js",
+    "milaroque/SAP004-md-links": "cli.js"
+  },
+  "publishConfig": {
+    "acess": "public"
   },
   "dependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
     "axios": "^0.19.2",
-    "babel-jest": "^26.1.0",
-    "chalk": "^4.1.0",
-    "fs": "0.0.1-security"
+    "jest": "^26.1.0",
+    "chalk": "^4.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0"
