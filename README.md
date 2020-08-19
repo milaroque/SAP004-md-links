@@ -61,6 +61,7 @@ Unique: 3
 Broken: 1
 ```
 
+![Image](https://github.com/milaroque/SAP004-md-links/blob/master/assets/md-links.png)
 # Dependências
 
 Neste projeto foram utilizadas as seguintes bibliotecas e programas:
