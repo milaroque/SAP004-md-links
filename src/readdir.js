@@ -7,11 +7,13 @@ const readPath = (dir, option) => new Promise((resolve, reject) => {
     if (err) {
       reject(err.message);
     } else {
+      const array = [];
       files.forEach((file) => {
         if (path.extname(file) === '.md') {
-          resolve(readFile(`${dir}/${file}`, option));
+          array.push(readFile(`${dir}/${file}`, option));
         }
       });
+      resolve(Promise.all(array))
     }
   });
 });
